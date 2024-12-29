@@ -46,7 +46,8 @@ SQLiteのデータ型は、次の5つ：
 - BOO型は、INTEGER型として保存する
 - 日付はTEXT型で保存する。datetime関数を使用して操作が可能。
 
-
+## 計算関数
+- SQLiteには、FLOOR関数とCEIL関数がない。CAST等を使用して代用する。
 
 
 
