@@ -2,7 +2,7 @@
 - SQLiteの基本的な使い方
 
 
-## SQLite
+## sqlite3コマンド
 ```bash
 # version確認
 sqlite3 --version
@@ -32,6 +32,15 @@ SELECT * FROM [table_name];
 -- shell終了
 .quit
 ```
+
+## データ型
+SQLiteのデータ型は、次の5つ：
+- NULL: NULL値。
+- INTEGER: 符号付き整数。1、2、3、4、6、または8バイトの長さ。
+- REAL: 浮動小数点数。8バイトのIEEE浮動小数点数。
+- TEXT: テキスト文字列。UTF-8、UTF-16BE、またはUTF-16LEエンコーディング。
+- BLOB: バイナリデータ。入力されたそのままの形式。
+※NUMERICを使用すると、動的型付けとなる
 
 
 
