@@ -6,6 +6,8 @@ import subprocess # 標準ライブラリに含まれる
 DB_FILE = "data/database.sqlite"
 # スクリプトディレクトリ
 SCRIPTS_DIR = "scripts/"
+# SQLiteの設定ファイル
+SETTING_FILE_PATH = "sqlite_settings.sql"
 
 def execute_sql(file_name):
     """指定したSQLファイルを実行する"""
@@ -13,7 +15,14 @@ def execute_sql(file_name):
     if not os.path.exists(file_path):
         print(f"SQLファイルが見つかりません: {file_path}")
         return
-    
+
+    # 設定ファイルとSQLファイルを結合
+    sql_commands = ""
+    with open(SETTING_FILE_PATH, "r") as f:
+        sql_commands += f.read() + "\n"
+    with open(file_path, "r") as f:
+        sql_commands += f.read() + "\n"
+
     try:
         # sqlite3コマンドを使ってSQLファイルを実行
         # subprocess.run() はコマンドを実行する関数
@@ -21,7 +30,7 @@ def execute_sql(file_name):
         # check=True でコマンドがエラーの場合に例外を発生させる
         # text=True でバイト列ではなく文字列を取得
         # capture_output=True で標準出力を取得。result.stdout に標準出力が格納される
-        result = subprocess.run(f"sqlite3 {DB_FILE} < {file_path}", shell=True, check=True, text=True, capture_output=True)
+        result = subprocess.run(f"sqlite3 {DB_FILE}", input=sql_commands, shell=True, check=True, text=True, capture_output=True)
         print(f"{file_name} のSQLを実行しました")
         print()
         print(result.stdout)

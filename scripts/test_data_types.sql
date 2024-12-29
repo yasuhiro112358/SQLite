@@ -1,6 +1,3 @@
--- SQLiteの設定ファイルの読み込み
-.read sqlite_settings.sql
-
 DROP TABLE IF EXISTS data_types_test;
 
 CREATE TABLE IF NOT EXISTS data_types_test (
@@ -32,6 +29,7 @@ VALUES (
     'Sample Text',
     123,
     456.789,
+    -- Xの直後にスペースを入れるとエラーになる
     X'53514C697465',
     1,
     987.654
@@ -40,6 +38,7 @@ VALUES (
     'Another Text',
     456,
     123.456,
+    -- Xの直後にスペースを入れるとエラーになる
     X'42696E617279',
     0,
     321.987
