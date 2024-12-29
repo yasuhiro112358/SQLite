@@ -1,5 +1,6 @@
 import sqlite3 # 標準ライブラリに含まれる
 import os # 標準ライブラリに含まれる
+import subprocess # 標準ライブラリに含まれる
 
 # データベースファイル
 DB_FILE = "data/database.db"
@@ -12,18 +13,20 @@ def execute_sql(file_name):
     if not os.path.exists(file_path):
         print(f"SQLファイルが見つかりません: {file_path}")
         return
-
-    with open(file_path, 'r', encoding='utf-8') as f:
-        sql = f.read()
-
+    
     try:
-        with sqlite3.connect(DB_FILE) as conn: # DB_FILEが存在しない場合は新規作成される
-            cursor = conn.cursor() # カーソルを取得
-            cursor.executescript(sql) # 複数のSQLを実行
-            conn.commit() # executescript() で実行したSQLが全て成功した場合にのみコミットされる
-            print(f"{file_name} のSQLを実行しました")
-    except sqlite3.Error as e:
-        print(f"エラーが発生しました: {e}")
+        # sqlite3コマンドを使ってSQLファイルを実行
+        # subprocess.run() はコマンドを実行する関数
+        # shell=True でシェル経由でコマンドを実行
+        # check=True でコマンドがエラーの場合に例外を発生させる
+        # text=True でバイト列ではなく文字列を取得
+        # capture_output=True で標準出力を取得。result.stdout に標準出力が格納される
+        result = subprocess.run(f"sqlite3 {DB_FILE} < {file_path}", shell=True, check=True, text=True, capture_output=True)
+        print(f"{file_name} のSQLを実行しました")
+        print()
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print(f"エラーが発生しました: {e.stderr}")
 
 def list_sql_scripts():
     """スクリプトディレクトリ内のSQLファイルをリスト表示"""
