@@ -48,7 +48,7 @@ SQLiteのデータ型は、次の5つ：
 
 ## 計算関数
 - SQLiteには、FLOOR関数とCEIL関数がない。CAST等を使用して代用する。
-
+- 日数差の計算は、julianday関数を使用する。
 
 
 
