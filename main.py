@@ -30,7 +30,7 @@ def execute_sql(file_name):
 
 def list_sql_scripts():
     """スクリプトディレクトリ内のSQLファイルをリスト表示"""
-    return [f for f in os.listdir(SCRIPTS_DIR) if f.endswith('.sql')]
+    return [f for f in os.listdir(SCRIPTS_DIR) if f.endswith('.sqlite')]
 
 def main():
     """メイン処理"""
