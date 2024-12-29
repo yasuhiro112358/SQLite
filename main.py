@@ -3,7 +3,7 @@ import os # 標準ライブラリに含まれる
 import subprocess # 標準ライブラリに含まれる
 
 # データベースファイル
-DB_FILE = "data/database.db"
+DB_FILE = "data/database.sqlite"
 # スクリプトディレクトリ
 SCRIPTS_DIR = "scripts/"
 
@@ -30,7 +30,7 @@ def execute_sql(file_name):
 
 def list_sql_scripts():
     """スクリプトディレクトリ内のSQLファイルをリスト表示"""
-    return [f for f in os.listdir(SCRIPTS_DIR) if f.endswith('.sqlite')]
+    return [f for f in os.listdir(SCRIPTS_DIR) if f.endswith('.sql')]
 
 def main():
     """メイン処理"""
