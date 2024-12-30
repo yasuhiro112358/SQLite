@@ -44,9 +44,9 @@ def list_sql_scripts():
 def main():
     """メイン処理"""
     print("実行可能なSQLスクリプト一覧:")
-    scripts = list_sql_scripts()
+    scripts = sorted(list_sql_scripts())
     for i, script in enumerate(scripts):
-        print(f"{i + 1}. {script}")
+        print(f"{i + 1:02d}. {script}")
 
     choice = input("\n実行したいスクリプトの番号を入力してください (終了: q): ")
     if choice.lower() == 'q':

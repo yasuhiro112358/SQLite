@@ -53,8 +53,17 @@ SQLiteのデータ型は、次の5つ：
 ## タイムスタンプ
 - タイムスタンプの更新は、トリガーを使用する（01_26.sqlを参照）
 
+## 条件分岐
+- IF関数はない
+- CASE式を使用する（02_04.sqlを参照）
 
+## CTE (Common Table Expression)
+- SQLiteは、CTEをサポートしている
+- 02_29.sqlを参照
 
+## その他のMySQLとの違い
+- UNION ALLの前後のサブクエリには()が使えない
+- last_insert_rowid()関数を使用して、最後に挿入された行のIDを取得する
 
 
 ## Note
