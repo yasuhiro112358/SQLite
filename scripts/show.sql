@@ -28,6 +28,9 @@ SELECT *
 FROM sqlite_master
 WHERE type = 'index';
 
+-- インデックス一覧を表示する
+.indexes comments
+
 -- テーブルのスキーマ（構造）を表示する
 PRAGMA table_info(users);
 PRAGMA table_info(sqlite_sequence);
@@ -36,4 +39,3 @@ PRAGMA table_info(logs);
 
 -- テーブルのスキーマ（構造）を表示する
 .schema comments
-
