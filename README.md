@@ -34,17 +34,24 @@ SELECT * FROM [table_name];
 ```
 
 ## データ型
-SQLiteのデータ型は、次の5つ：
+SQLiteのデータ型（storage class）は、次の５つ：
 - NULL: NULL値。
 - INTEGER: 符号付き整数。1、2、3、4、6、または8バイトの長さ。
 - REAL: 浮動小数点数。8バイトのIEEE浮動小数点数。
 - TEXT: テキスト文字列。UTF-8、UTF-16BE、またはUTF-16LEエンコーディング。
 - BLOB: バイナリデータ。入力されたそのままの形式。
 
-その他のデータ型については、次のようになる：
-- NUMERICを使用すると、動的型付けとなる
-- BOO型は、INTEGER型として保存する
-- 日付はTEXT型で保存する。datetime関数を使用して操作が可能。
+NUMERICを使用すると、動的型付けとなる。文字列は変換可能なときは数値（INTEGER or REAL）として扱われる。
+
+その他のデータ型キーワードについては、上記５つに振り分けられる：
+- DOUBLE: REAL型にキャストされる
+- FLOAT: REAL型にキャストされる
+- BOOLEAN: NUMERIC型にキャストされる
+- DATE: NUMERIC型にキャストされる
+- DATETIME: NUMERIC型にキャストされる
+- 日時はTEXT型で保持できる（YYYY-MM-DD HH:MM:SS形式）。datetime関数を使用して操作が可能。
+- データの長さは指定しても無視される
+*詳細：https://www.sqlite.org/datatype3.html
 
 ## 計算関数
 - SQLiteには、FLOOR関数とCEIL関数がない。CAST等を使用して代用する。
@@ -64,6 +71,7 @@ SQLiteのデータ型は、次の5つ：
 ## その他のMySQLとの違い
 - UNION ALLの前後のサブクエリには()が使えない
 - last_insert_rowid()関数を使用して、最後に挿入された行のIDを取得する
+- LOAD DATA LOCAL INFILE 構文がない
 
 
 ## Note
