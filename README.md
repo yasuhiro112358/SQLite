@@ -59,7 +59,7 @@ SQLiteのデータ型は、次の5つ：
 
 ## その他のMySQLとの違い
 - UNION ALLの前後のサブクエリには()が使えない
-
+- last_insert_rowid()関数を使用して、最後に挿入された行のIDを取得する
 
 
 ## Note
