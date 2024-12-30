@@ -3,7 +3,7 @@ import os # 標準ライブラリに含まれる
 import subprocess # 標準ライブラリに含まれる
 
 # データベースファイル
-DB_FILE = "data/database.sqlite"
+DB_FILE = "data/database.db"
 # スクリプトディレクトリ
 SCRIPTS_DIR = "scripts/"
 # SQLiteの設定ファイル
