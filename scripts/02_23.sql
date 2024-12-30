@@ -24,8 +24,17 @@ VALUES (1, 'comment-1-1'),
   (3, 'comment-3-1'),
   (4, 'comment-4-1');
 
-SELECT posts.id,
-  message,
-  comment
+-- INNER JOIN
+SELECT *
 FROM posts
   INNER JOIN comments ON posts.id = comments.post_id;
+
+-- LEFT JOIN
+SELECT *
+FROM posts
+  LEFT OUTER JOIN comments ON posts.id = comments.post_id;
+
+-- RIGHT JOIN
+SELECT *
+FROM posts
+  RIGHT OUTER JOIN comments ON posts.id = comments.post_id;
