@@ -16,7 +16,7 @@ CREATE TABLE posts (
 CREATE TABLE logs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   message TEXT,
-  created DATETIME DEFAULT (datetime('now'))
+  created NUMERIC DEFAULT (datetime('now'))
 );
 
 CREATE TRIGGER posts_update_trigger
