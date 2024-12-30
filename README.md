@@ -71,6 +71,7 @@ NUMERICを使用すると、動的型付けとなる。文字列は変換可能�
 ## その他のMySQLとの違い
 - UNION ALLの前後のサブクエリには()が使えない
 - last_insert_rowid()関数を使用して、最後に挿入された行のIDを取得する
+- LOAD DATA LOCAL INFILE 構文がない
 
 
 ## Note
